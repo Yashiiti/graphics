@@ -4,8 +4,8 @@
 #define TRUE 1
 #define FALSE 0
 /* Dimensions of texture image. */
-#define IMAGE_WIDTH 64
-#define IMAGE_HEIGHT 64
+#define IMAGE_WIDTH 128
+#define IMAGE_HEIGHT 128
 /* Step to be taken for each rotation. */
 #define ANGLE_STEP 10
 /* Magic numbers for relationship b/w cylinder head and crankshaft. */
