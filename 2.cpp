@@ -143,7 +143,9 @@ void draw_crankbell(void)
     glPushMatrix();
     glColor4f(1.0, 0.5, 0.5, 1.0);
     glRotatef(90, 0.0, 1.0, 0.0);
+    glTranslatef(0.0, 0.0, 0.2);
     myCylinder(obj, 0.3, 0.08, 0.12);
+    glTranslatef(0.0, 0.0, -0.2);
     glColor4f(0.5, 0.1, 0.5, 1.0);
     glTranslatef(0.0, 0.2, 0.0);
     myCylinder(obj, 0.06, 0.0, 0.34);
@@ -169,7 +171,7 @@ void draw_crankbell2(void)
     glRotatef(90, 0.0, 1.0, 0.0);
     myCylinder(obj, 0.3, 0.08, 0.12);
     glColor4f(0.5, 0.1, 0.5, 1.0);
-    glTranslatef(0.0, 0.2, -2.0);
+    glTranslatef(0.0, 0.2, 0.0);
     myCylinder(obj, 0.06, 0.0, 0.34);
     glTranslatef(0.0, 0.0, 0.22);
     glRotatef(90, 0.0, 1.0, 0.0);
@@ -182,8 +184,8 @@ void draw_crankbell2(void)
             glCallList(list_piston_shaded);
     }
     else
-        // draw_piston();
-    draw_piston2();
+        draw_piston();
+    // draw_piston2();
     glPopMatrix();
 }
 /* Draws the complete crank. Piston also gets drawn through the crank
@@ -195,13 +197,13 @@ void draw_crank1(void)
     glRotatef(crank_angle, 1.0, 0.0, 0.0);
     glPushMatrix();
     glRotatef(90, 0.0, 1.0, 0.0);
-    glTranslatef(0.0, 0.0, -1.8);
-    myCylinder(obj, 0.08, 0.0, 2.5);
+    glTranslatef(0.0, 0.0, -2.5);
+    myCylinder(obj, 0.08, 0.0, 3.0);
     glPopMatrix();
     glPushMatrix();
     glTranslatef(0.28, 0.0, 0.0);
-    draw_crankbell();
-    // draw_crankbell2();
+    // draw_crankbell();
+    draw_crankbell2();
     glPopMatrix();
     glPushMatrix();
   
@@ -215,7 +217,7 @@ void draw_crank(void)
     glPushMatrix();
     glRotatef(90, 0.0, 1.0, 0.0);
     glTranslatef(0.0, 0.0, -1.0);
-    myCylinder(obj, 0.08, 0.0, 1.4);
+    // myCylinder(obj, 0.08, 0.0, 1.4);
     glPopMatrix();
     glPushMatrix();
     glTranslatef(0.28, 0.0, 0.0);
@@ -223,7 +225,7 @@ void draw_crank(void)
     // draw_crankbell2();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(-0.77, 0.0, 0.0);
+    glTranslatef(1.8, 0.0, 0.0);
     if (shaded)
     {
         if (texture)
@@ -283,14 +285,16 @@ void display(void)
         glTranslatef(0.0, -0.8, 0.0);
         draw_crank1();
         glPopMatrix();
+        
         glTranslatef(-2.0, 0.0, 0.0);
+        // glRotatef(180, 0, 1, 0);
         draw_engine_pole();
         glPushMatrix();
-        glTranslatef(0.5, 1.4, 0.0);
+        glTranslatef(-0.5, 1.4, 0.0);
         draw_cylinder_head();
         glPopMatrix();
         glPushMatrix();
-        glTranslatef(0.0, -0.8, 0.0);
+        glTranslatef(-1.0, -0.8, 0.0);
         draw_crank();
         glPopMatrix();
     } while (pass > 0);
@@ -633,7 +637,7 @@ glutInitWindowSize(400, 400);
 glutInit(&argc, argv);
 /* Transperancy won't work properly without GLUT_ALPHA */
 glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH |
-GLUT_MULTISAMPLE);
+GLUT_MULTISAMPLE | GLUT_ALPHA);
 glutCreateWindow("Steam Engine");
 glutDisplayFunc(display);
 glutKeyboardFunc(keyboard);
@@ -643,5 +647,5 @@ myinit();
 glutReshapeFunc(myReshape);
 glutMainLoop();
 return 0;
-/* ANSI C requires main to return int. */
+
 }
