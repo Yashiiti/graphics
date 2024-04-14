@@ -112,13 +112,14 @@ void draw_engine_pole(void)
 necesary
 translations for the rotation. */
 void draw_cylinder_head(void)
-{
+{   
     glPushMatrix();
     glColor4f(0.5, 1.0, 0.5, 0.1);
     glRotatef(90, 1.0, 0.0, 0.0);
     glTranslatef(0, 0.0, 0.4);
     glRotatef(head_angle, 1, 0, 0);
     glTranslatef(0, 0.0, -0.4);
+    if(transparent) glTranslatef(2.0, 0.0, 0.0);
     myCylinder(obj, 0.23, 0.21, 1.6);
     glRotatef(180, 1.0, 0.0, 0.0);
     gluDisk(obj, 0, 0.23, 20, 1);
@@ -199,7 +200,8 @@ void draw_crank1(void)
     glPushMatrix();
     glRotatef(90, 0.0, 1.0, 0.0);
     glTranslatef(0.0, 0.0, -2.4);
-    myCylinder(obj, 0.08, 0.0, 2.8);
+    if(transparent) glTranslatef(0.0, 0.0, 2.0); // to make transparent work
+    myCylinder(obj, 0.08, 0.0, 2.8); // one long crank rod
     glPopMatrix();
     glPushMatrix();
     glTranslatef(0.28, 0.0, 0.0);
@@ -268,6 +270,7 @@ void display(void)
         if (pass == 2)
         {
             glAlphaFunc(GL_EQUAL, 1);
+            // glAlphaFunc(GL_NOTEQUAL, 1);
             glDepthMask(GL_TRUE);
             pass--;
         }
@@ -631,7 +634,7 @@ int main(int argc, char **argv)
     puts("Keypad Arrow keys (with NUM_LOCK on) rotates object.");
     puts("Rotate crank: 'a' = anti-clock wise 'z' = clock wise");
 puts("Crank Speed : '+' = Speed up by 1 '-' = Slow Down by 1");
-
+puts("press s for shading and t for texture");
 puts(" Alternatively a pop up menu with all toggles is attached");
 puts("to the left mouse button.\n");
 glutInitWindowSize(400, 400);
