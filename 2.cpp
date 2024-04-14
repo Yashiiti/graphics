@@ -148,9 +148,9 @@ void draw_crankbell(void)
     myCylinder(obj, 0.3, 0.08, 0.12);
     glTranslatef(0.0, 0.0, -0.3);
     glColor4f(0.5, 0.1, 0.5, 1.0);
-    glTranslatef(0.0, 0.2, 0.1);
-    myCylinder(obj, 0.06, 0.0, 0.2);
-    glTranslatef(0.0, 0.0, -0.1);
+    glTranslatef(0.0, 0.2, 0.12);
+    myCylinder(obj, 0.06, 0.0, 0.28);
+    glTranslatef(0.0, 0.0, -0.12);
     glTranslatef(0.0, 0.0, 0.22);
     glRotatef(90, 0.0, 1.0, 0.0);
     glRotatef(crank_angle - head_angle, 1.0, 0.0, 0.0);
@@ -228,7 +228,7 @@ void draw_crank(void)
     // draw_crankbell2();
     glPopMatrix();
     glPushMatrix();
-    glTranslatef(1.8, 0.0, 0.0);
+    glTranslatef(1.7, 0.0, 0.0);
     if (shaded)
     {
         if (texture)
