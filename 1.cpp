@@ -638,7 +638,7 @@ void create_menu(void)
     glutAddMenuEntry("Texture", 3);
     glutAddMenuEntry("Transparency", 4);
     glutAddMenuEntry("Right Light (0)", 5);
-    glutAddMenuEntry("Left Light (1)", 6);
+    // glutAddMenuEntry("Left Light (1)", 6);
     glutAddMenuEntry("Speed UP", 7);
     glutAddMenuEntry("Slow Down", 8);
 }
@@ -676,7 +676,7 @@ void myinit(void)
 {
     GLfloat mat_specular[] = {1.0, 1.0, 1.0, 1.0};
     GLfloat mat_shininess[] = {50.0};
-    GLfloat light_position1[] = {1.0, 1.0, 1.0, 0.0};
+    GLfloat light_position1[] = {1.0, 1.0, 1.0, 1.0};
     GLfloat light_position2[] = {-1.0, 1.0, 1.0, 0.0};
     glClearColor(0.0, 0.0, 0.0, 0.0);
     obj = gluNewQuadric();
@@ -701,6 +701,7 @@ void myinit(void)
     enabled. */
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
+    // glEnable(GL_LIGHT1);
     glDepthFunc(GL_LEQUAL);
     glEnable(GL_DEPTH_TEST);
     glDisable(GL_ALPHA_TEST);
