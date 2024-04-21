@@ -1,2 +1,4 @@
 # graphics
-## to run:g++ 2.cpp -o project3 -lGL -lGLU -lglut
+## to run:
+## sudo apt-get install libsoil-dev
+## g++ 1.cpp -o project -lGL -lGLU -lglut -lSOIL

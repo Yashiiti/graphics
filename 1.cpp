@@ -676,7 +676,7 @@ void myinit(void)
 {
     GLfloat mat_specular[] = {1.0, 1.0, 1.0, 1.0};
     GLfloat mat_shininess[] = {50.0};
-    GLfloat light_position1[] = {1.0, 1.0, 1.0, 1.0};
+    GLfloat light_position1[] = {1.0, 1.0, 1.0, 0.0};
     GLfloat light_position2[] = {-1.0, 1.0, 1.0, 0.0};
     glClearColor(0.0, 0.0, 0.0, 0.0);
     obj = gluNewQuadric();
