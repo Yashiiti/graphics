@@ -1,3 +1,5 @@
+// The reference used for the steam engine model is taken from the provided Github Repository.
+// https://github.com/darmat/Engine3D
 #include <stdio.h>
 #include <GL/glut.h>
 #include <math.h>
