@@ -1,4 +1,4 @@
-// The reference used for the steam engine model is taken from the provided Github Repository.
+// The reference used for the interactive 3D-Piston model is taken from the provided Github Repository.
 // https://github.com/darmat/Engine3D
 #include <stdio.h>
 #include <GL/glut.h>
@@ -694,7 +694,7 @@ void myReshape(int w, int h)
     glTranslatef(0.0, 0.0, -5.0); /* viewing transform */
     glScalef(1.0, 1.0, 1.0);
 }
-/* Main program. An interactive model of a miniture steam engine.
+/* Main program. An interactive model of a 3D-Piston-Model.
 Sets system in Double Buffered mode and initialises all the call-
 back
 functions. */
