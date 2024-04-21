@@ -704,6 +704,7 @@ int main(int argc, char **argv)
 puts("Crank Speed : '+' = Speed up by 1 '-' = Slow Down by 1");
 puts("press s for shading and t for texture");
 puts("press o for transparency");
+puts("press space bar for animation");
 puts(" Alternatively a pop up menu with all toggles is attached");
 puts("to the left mouse button.\n");
 glutInitWindowSize(400, 400);
